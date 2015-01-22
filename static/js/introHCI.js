@@ -5,6 +5,16 @@ $(document).ready(function() {
 	initializePage();
 })
 
+var images = [
+				'lorempixel.abstract.1.jpeg',
+				'lorempixel.abstract.8.jpeg',
+				'lorempixel.city.1.jpeg',
+				'lorempixel.city.2.jpeg',
+				'lorempixel.people.1.jpeg',
+				'lorempixel.people.2.jpeg',
+				'lorempixel.technics.1.jpeg',
+				'lorempixel.technics.2.jpeg'
+			 ]
 /*
  * Function that is called when the document is ready.
  */
@@ -41,8 +51,11 @@ function projectClick(e) { 
     if (description.length == 0) { 
        $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>"); 
     } else { 
-       description.html("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
+       description.toggleClass("hidden");
     }
+
+    var image = $(containingProject).find(".img");
+    image.attr("src", "images/" + images[Math.floor(Math.random()*images.length)]);
 }
 
 function formClick(e){
